@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirito | Artisanal Pizza Restaurant</title>
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=WindSong:wght@500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-bg: #f7a64a;
+            --light-orange: #f9b974;
+            --medium-orange: #f59c2e;
+            --dark-orange: #800020;
+            --burgundy: #800020;
+            --beige: #f5f5dc;
+            --light-beige: #faf8f2;
+            --text-dark: #333;
+            --text-light: #555;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--burgundy);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--burgundy);
+            color: var(--beige);
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'EB Garamond', serif;
+        }
+        
+        .btn:hover {
+            background-color: #5a0017;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(128, 0, 32, 0.2);
+        }
+        
+        .btn-beige {
+            background-color: var(--beige);
+            color: var(--burgundy);
+        }
+        
+        .btn-beige:hover {
+            background-color: #e8e8d0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--burgundy);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--burgundy);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--primary-bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--dark-orange);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'WindSong', cursive;
+            font-size: 2.8rem;
+            font-weight: 500;
+            color: var(--burgundy);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--burgundy);
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+            color: var(--burgundy);
+        }
+        
+        nav ul li a:hover {
+            color: #5a0017;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--burgundy);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--burgundy);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(247, 166, 74, 0.173), rgba(247, 166, 74, 0.868)), url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--burgundy);
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .hero h1 {
+            font-family: 'WindSong', cursive;
+            font-size: 4.5rem;
+            color: var(--burgundy);
+            margin-bottom: 400px;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--burgundy);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== MENU SECTION ===== */
+        .menu {
+            padding: 100px 0;
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: var(--beige);
+            border: none;
+            border-radius: 30px;
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--burgundy);
+            border: 1px solid var(--dark-orange);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--burgundy);
+            color: var(--beige);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .menu-item {
+            background-color: var(--beige);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid var(--dark-orange);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .menu-item-img {
+            height: 220px;
+            width: 100%;
+            background-color: var(--light-orange);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-item-content {
+            padding: 25px;
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .menu-item-title {
+            font-size: 1.6rem;
+            margin-bottom: 0;
+        }
+        
+        .menu-item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--burgundy);
+        }
+        
+        .menu-item-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .menu-item-ingredients {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-item-rating {
+            color: #d4af37;
+        }
+        
+        /* ===== PROMOTIONS SECTION ===== */
+        .promotions {
+            padding: 100px 0;
+        }
+        
+        .promo-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            background-color: var(--beige);
+            border: 2px solid var(--dark-orange);
+        }
+        
+        .promo-slide {
+            display: none;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .promo-slide.active {
+            display: block;
+        }
+        
+        .promo-title {
+            font-size: 2.2rem;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+        }
+        
+        .promo-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        
+        .promo-code {
+            display: inline-block;
+            background-color: var(--burgundy);
+            color: var(--beige);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 20px 0;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--beige);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid var(--dark-orange);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--burgundy);
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 100px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--dark-orange);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--beige);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--dark-orange);
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            color: var(--burgundy);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--burgundy);
+            color: var(--beige);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--beige);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-bg);
+        }
+        
+        .footer-logo {
+            font-family: 'WindSong', cursive;
+            font-size: 2.5rem;
+            color: var(--beige);
+            margin-bottom: 20px;
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #e8e4d8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(245, 245, 220, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: var(--beige);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-bg);
+            transform: translateY(-5px);
+            color: var(--burgundy);
+        }
+        
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+            color: #e8e4d8;
+        }
+        
+        .footer-links a {
+            color: #e8e4d8;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-bg);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 245, 220, 0.2);
+            color: #c9c5b5;
+            font-size: 0.9rem;
+        }
+        
+        /* Form Styles */
+        input, textarea {
+            font-family: 'EB Garamond', serif;
+            padding: 12px;
+            border: 1px solid var(--dark-orange);
+            border-radius: 4px;
+            background-color: var(--beige);
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--burgundy);
+            box-shadow: 0 0 0 2px rgba(128, 0, 32, 0.1);
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-bg);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                border-top: 2px solid var(--dark-orange);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .promo-slide {
+                padding: 40px 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== PIZZA SIZE STYLES ===== */
+.size-selection {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid var(--dark-orange);
+}
+
+.size-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.size-option {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 10px 5px;
+    border: 2px solid var(--dark-orange);
+    border-radius: 6px;
+    background-color: var(--beige);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+}
+
+.size-option:hover {
+    background-color: var(--light-orange);
+    transform: translateY(-2px);
+}
+
+.size-option.selected {
+    background-color: var(--burgundy);
+    color: var(--beige);
+    border-color: var(--burgundy);
+    box-shadow: 0 3px 8px rgba(128, 0, 32, 0.2);
+}
+
+.size-price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 5px;
+    color: var(--burgundy);
+}
+
+.size-option.selected .size-price {
+    color: var(--beige);
+}
+
+.size-diameter {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 3px;
+}
+
+.size-option.selected .size-diameter {
+    color: rgba(245, 245, 220, 0.9);
+}
+
+.selected-size-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: var(--beige);
+    border-radius: 6px;
+    border-left: 4px solid var(--burgundy);
+}
+
+.selected-size-text {
+    font-weight: 600;
+    color: var(--burgundy);
+}
+
+.selected-size-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+/* مقارنة الأسعار */
+.price-comparison {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: rgba(128, 0, 32, 0.05);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.price-per-inch {
+    text-align: center;
+}
+
+.price-per-inch .label {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.price-per-inch .value {
+    color: var(--burgundy);
+    font-weight: 600;
+}
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-pizza-slice logo-icon"></i>
+                Spirito
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#promotions">Promotions</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Spirito Pizza</h1>
+            <p>Authentic artisanal pizza made with passion in the heart of Al-Muqla. Experience the perfect blend of traditional craftsmanship and premium ingredients.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn">View Our Pizzas</a>
+                <a href="#about" class="btn btn-beige">Visit Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Pizza Selection</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: var(--burgundy);">
+             All pizzas available in multiple sizes. Select your preferred size below.
+            </p>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All Pizzas</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="specialty">Specialty</button>
+                <button class="filter-btn" data-filter="vegetarian">Vegetarian</button>
+            </div>
+            <div class="menu-items">
+                <!-- Pizza items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotions" id="promotions">
+        <div class="container">
+            <h2 class="section-title">Today's Special Offers</h2>
+            <div class="promo-slider">
+                <div class="promo-slide active">
+                    <h3 class="promo-title">Family Feast Friday</h3>
+                    <p class="promo-text">Get any 2 large pizzas with 1 free garlic bread and a 1.5L drink every Friday!</p>
+                    <div class="promo-code">CODE: FAMILY25</div>
+                    <p>Valid every Friday from 4 PM - 10 PM</p>
+                    <a href="#menu" class="btn">Order Now</a>
+                </div>
+                <div class="promo-slide">
+                    <h3 class="promo-title">Lunch Special</h3>
+                    <p class="promo-text">Enjoy any personal pizza with a side salad and drink for just $12.99!</p>
+                    <div class="promo-code">CODE: LUNCH13</div>
+                    <p>Weekdays 11 AM - 3 PM only</p>
+                    <a href="#menu" class="btn">Order Now</a>
+                </div>
+                <div class="promo-slide">
+                    <h3 class="promo-title">Student Discount</h3>
+                    <p class="promo-text">Students get 20% off all pizzas with valid ID. Dine-in only.</p>
+                    <div class="promo-code">CODE: STUDENT20</div>
+                    <p>Valid any day with student ID</p>
+                    <a href="#menu" class="btn">Order Now</a>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Spirito</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Artisanal Pizza Crafted with Passion</h2>
+                    <p>Founded in 2020, Spirito brings authentic American-style pizza to Al-Muqla. Our master pizzaiolos combine traditional techniques with locally-sourced ingredients to create unforgettable flavors.</p>
+                    <p>Every pizza is made to order, with dough fermented for 48 hours to develop the perfect texture and flavor. We believe in the art of pizza making and the joy it brings to our community.</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Al-Muqla District, Main Street<br>Building 45, Ground Floor</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock info-icon"></i>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Sun-Thu: 11 AM - 11 PM<br>Fri-Sat: 12 PM - 12 AM</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone info-icon"></i>
+                            <div>
+                                <h4>Contact</h4>
+                                <p>+966 12 345 6789<br>reservations@spirito-pizza.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-truck info-icon"></i>
+                            <div>
+                                <h4>Delivery</h4>
+                                <p>Free delivery within 5km<br>30-minute guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1680&q=80" alt="Spirito Restaurant Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">Spirito</div>
+                    <p>Artisanal pizza restaurant in Al-Muqla offering authentic American-style pizza made with premium ingredients and traditional techniques.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#promotions">Promotions</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Al-Muqla District, Main Street</li>
+                        <li><i class="fas fa-phone"></i> +966 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@spirito-pizza.com</li>
+                        <li><i class="fas fa-clock"></i> Sun-Thu: 11 AM - 11 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates on new pizza creations and special promotions.</p>
+                    <form id="newsletterForm" style="margin-top: 20px;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid rgba(245, 245, 220, 0.3); border-radius: 4px; font-family: 'EB Garamond', serif; background-color: rgba(245, 245, 220, 0.2); color: var(--beige);" placeholder="Your email">
+                        <button type="submit" class="btn" style="width: 100%; background-color: var(--primary-bg); color: var(--burgundy);">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Spirito Pizza Restaurant. All rights reserved. | Designed for Al-Muqla Area</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MENU DATA WITH SIZES =====
+const pizzaMenu = [
+    {
+        id: 1,
+        name: "Margherita Classica",
+        category: "classic",
+        description: "The timeless classic with San Marzano tomatoes, fresh mozzarella, and basil leaves.",
+        ingredients: "Tomato sauce, mozzarella, fresh basil, olive oil",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 16.99,
+        sizes: [
+            { size: "Small", price: 12.99, diameter: "10 inch" },
+            { size: "Medium", price: 16.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 21.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 2,
+        name: "Pepperoni Supreme",
+        category: "classic",
+        description: "Generously topped with double pepperoni and a blend of three cheeses.",
+        ingredients: "Tomato sauce, mozzarella, cheddar, pepperoni, oregano",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 18.99,
+        sizes: [
+            { size: "Small", price: 14.99, diameter: "10 inch" },
+            { size: "Medium", price: 18.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 24.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 3,
+        name: "Truffle Mushroom",
+        category: "specialty",
+        description: "Wild mushrooms, truffle oil, caramelized onions, and goat cheese on a white sauce base.",
+        ingredients: "White sauce, mozzarella, wild mushrooms, truffle oil, onions, goat cheese",
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 22.99,
+        sizes: [
+            { size: "Medium", price: 22.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 27.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 4,
+        name: "Mediterranean Veggie",
+        category: "vegetarian",
+        description: "Roasted vegetables, feta cheese, kalamata olives, and spinach on tomato sauce.",
+        ingredients: "Tomato sauce, mozzarella, bell peppers, zucchini, feta, olives, spinach",
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 19.99,
+        sizes: [
+            { size: "Small", price: 16.99, diameter: "10 inch" },
+            { size: "Medium", price: 19.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 24.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 5,
+        name: "BBQ Chicken",
+        category: "specialty",
+        description: "Grilled chicken, red onions, cilantro, and our signature BBQ sauce.",
+        ingredients: "BBQ sauce, mozzarella, grilled chicken, red onions, cilantro",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1593246049226-ded77bf90326?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 21.99,
+        sizes: [
+            { size: "Medium", price: 21.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 26.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 6,
+        name: "Four Cheese",
+        category: "vegetarian",
+        description: "A blend of mozzarella, gorgonzola, parmesan, and goat cheese on tomato sauce.",
+        ingredients: "Tomato sauce, mozzarella, gorgonzola, parmesan, goat cheese, basil",
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1552539618-7aec9ff2e1d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 20.99,
+        sizes: [
+            { size: "Small", price: 17.99, diameter: "10 inch" },
+            { size: "Medium", price: 20.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 25.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 7,
+        name: "Spicy Diavola",
+        category: "specialty",
+        description: "Spicy salami, jalapeños, and chili flakes for those who like it hot.",
+        ingredients: "Tomato sauce, mozzarella, spicy salami, jalapeños, chili flakes",
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 19.99,
+        sizes: [
+            { size: "Medium", price: 19.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 24.99, diameter: "14 inch" }
+        ]
+    },
+    {
+        id: 8,
+        name: "Hawaiian Paradise",
+        category: "classic",
+        description: "The classic controversial combination of ham and pineapple that somehow works perfectly.",
+        ingredients: "Tomato sauce, mozzarella, ham, pineapple, oregano",
+        rating: 3,
+        image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+        price: 17.99,
+        sizes: [
+            { size: "Small", price: 14.99, diameter: "10 inch" },
+            { size: "Medium", price: 17.99, diameter: "12 inch", default: true },
+            { size: "Large", price: 22.99, diameter: "14 inch" }
+        ]
+    }
+];
+
+// ===== GLOBAL VARIABLES =====
+const menuItemsContainer = document.querySelector('.menu-items');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
+const promoSlides = document.querySelectorAll('.promo-slide');
+const sliderDots = document.querySelectorAll('.slider-dot');
+const newsletterForm = document.getElementById('newsletterForm');
+
+// تخزين الأحجام المختارة لكل بيتزا
+let selectedSizes = {};
+
+// ===== MOBILE MENU TOGGLE =====
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+}
+
+// ===== RENDER PIZZA MENU =====
+function renderMenuItems(filter = 'all') {
+    if (!menuItemsContainer) return;
+    
+    menuItemsContainer.innerHTML = '';
+    
+    const filteredPizzas = filter === 'all' 
+        ? pizzaMenu 
+        : pizzaMenu.filter(pizza => pizza.category === filter);
+    
+    if (filteredPizzas.length === 0) {
+        menuItemsContainer.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                <h3 style="color: var(--burgundy);">No pizzas found in this category</h3>
+                <p>Try selecting a different category</p>
+            </div>
+        `;
+        return;
+    }
+    
+    filteredPizzas.forEach(pizza => {
+        // تحديد الحجم المختار (أو الافتراضي)
+        const defaultSize = pizza.sizes.find(s => s.default) || pizza.sizes[0];
+        const selectedSize = selectedSizes[pizza.id] || defaultSize.size;
+        const currentSize = pizza.sizes.find(s => s.size === selectedSize) || defaultSize;
+        
+        const ratingStars = '★'.repeat(pizza.rating) + '☆'.repeat(5 - pizza.rating);
+        
+        const menuItem = document.createElement('div');
+        menuItem.className = 'menu-item';
+        menuItem.setAttribute('data-category', pizza.category);
+        menuItem.setAttribute('data-pizza-id', pizza.id);
+        
+        menuItem.innerHTML = `
+            <div class="menu-item-img" style="background-image: url('${pizza.image}')"></div>
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">${pizza.name}</h3>
+                    <div class="menu-item-price">$${currentSize.price.toFixed(2)}</div>
+                </div>
+                <div class="menu-item-rating" style="margin-bottom: 10px;">${ratingStars}</div>
+                <p class="menu-item-description">${pizza.description}</p>
+                <p class="menu-item-ingredients"><strong>Ingredients:</strong> ${pizza.ingredients}</p>
+                
+                <!-- Size Selection Section -->
+                <div class="size-selection">
+                    <h4 style="margin-bottom: 10px; color: var(--burgundy); font-size: 1.2rem;">Select Size:</h4>
+                    <div class="size-options">
+                        ${pizza.sizes.map(size => `
+                            <div class="size-option ${size.size === selectedSize ? 'selected' : ''}" 
+                                 onclick="selectPizzaSize(${pizza.id}, '${size.size}')"
+                                 data-size="${size.size}">
+                                <div class="size-name">${size.size}</div>
+                                <div class="size-price">$${size.price.toFixed(2)}</div>
+                                <div class="size-diameter">${size.diameter}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="selected-size-display">
+                        <span>Selected: <strong>${currentSize.size}</strong> (${currentSize.diameter})</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item-footer" style="margin-top: 20px;">
+                    <button class="btn" onclick="addToCart(${pizza.id}, '${currentSize.size}', ${currentSize.price})">
+                        Add to Order - $${currentSize.price.toFixed(2)}
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        menuItemsContainer.appendChild(menuItem);
+    });
+}
+
+// ===== SELECT PIZZA SIZE =====
+window.selectPizzaSize = function(pizzaId, size) {
+    selectedSizes[pizzaId] = size;
+    
+    // تحديث الواجهة للبيتزا المحددة فقط
+    const menuItem = document.querySelector(`.menu-item[data-pizza-id="${pizzaId}"]`);
+    if (menuItem) {
+        const pizza = pizzaMenu.find(p => p.id === pizzaId);
+        const selectedSize = pizza.sizes.find(s => s.size === size);
+        
+        // تحديث السعر في العنوان
+        const priceElement = menuItem.querySelector('.menu-item-price');
+        if (priceElement) {
+            priceElement.textContent = `$${selectedSize.price.toFixed(2)}`;
+        }
+        
+        // تحديث أزرار الأحجام
+        const sizeOptions = menuItem.querySelectorAll('.size-option');
+        sizeOptions.forEach(option => {
+            if (option.getAttribute('data-size') === size) {
+                option.classList.add('selected');
+            } else {
+                option.classList.remove('selected');
+            }
+        });
+        
+        // تحديث عرض الحجم المختار
+        const displayElement = menuItem.querySelector('.selected-size-display');
+        if (displayElement) {
+            displayElement.innerHTML = `<span>Selected: <strong>${selectedSize.size}</strong> (${selectedSize.diameter})</span>`;
+        }
+        
+        // تحديث زر الإضافة
+        const button = menuItem.querySelector('.btn');
+        if (button) {
+            button.textContent = `Add to Order - $${selectedSize.price.toFixed(2)}`;
+            button.setAttribute('onclick', `addToCart(${pizzaId}, '${size}', ${selectedSize.price})`);
+        }
+    }
+};
+
+// ===== ADD TO CART =====
+window.addToCart = function(pizzaId, size, price) {
+    const pizza = pizzaMenu.find(p => p.id === pizzaId);
+    if (pizza) {
+        // في التطبيق الحقيقي، هنا نضيف للسلة
+        // cart.addItem({pizzaId, name: pizza.name, size, price, quantity: 1});
+        
+        alert(`✅ Added ${pizza.name} (${size}) to your cart for $${price.toFixed(2)}!`);
+        
+        // تأثير بسيط للزر
+        const button = event.target;
+        button.innerHTML = '<i class="fas fa-check"></i> Added!';
+        button.style.backgroundColor = '#28a745';
+        
+        setTimeout(() => {
+            button.textContent = `Add to Order - $${price.toFixed(2)}`;
+            button.style.backgroundColor = '';
+            button.setAttribute('onclick', `addToCart(${pizzaId}, '${size}', ${price})`);
+        }, 1500);
+    }
+};
+
+// ===== INITIALIZE FILTER BUTTONS =====
+if (filterButtons.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // تحديث الأزرار النشطة
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // تصفية القائمة
+            const filter = this.getAttribute('data-filter');
+            renderMenuItems(filter);
+        });
+    });
+}
+
+// ===== PROMOTION SLIDER =====
+let currentSlide = 0;
+let slideInterval;
+
+function showSlide(index) {
+    if (!promoSlides.length || !sliderDots.length) return;
+    
+    // تأكد من أن الفهرس ضمن النطاق
+    if (index >= promoSlides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = promoSlides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+    
+    // إخفاء جميع الشرائح
+    promoSlides.forEach(slide => slide.classList.remove('active'));
+    sliderDots.forEach(dot => dot.classList.remove('active'));
+    
+    // إظهار الشريحة المحددة
+    promoSlides[currentSlide].classList.add('active');
+    sliderDots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// إضافة event listeners لنقاط السلايدر
+if (sliderDots.length > 0) {
+    sliderDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            showSlide(index);
+            startAutoSlide();
+        });
+    });
+}
+
+function startAutoSlide() {
+    if (promoSlides.length > 1) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+}
+
+// ===== SMOOTH SCROLLING =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== NEWSLETTER FORM =====
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = this.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+        
+        if (email && validateEmail(email)) {
+            // في التطبيق الحقيقي، هنا نرسل البيانات للخادم
+            alert(`🎉 Thank you for subscribing with ${email}! You'll receive our pizza updates soon.`);
+            emailInput.value = '';
+            
+            // تأثير بسيط
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            submitBtn.style.backgroundColor = '#28a745';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.backgroundColor = '';
+            }, 2000);
+        } else {
+            alert('Please enter a valid email address.');
+            emailInput.focus();
+            emailInput.style.borderColor = '#dc3545';
+            
+            setTimeout(() => {
+                emailInput.style.borderColor = '';
+            }, 2000);
+        }
+    });
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// ===== STICKY HEADER =====
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (header) {
+        if (window.scrollY > 100) {
+            header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
+        } else {
+            header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.08)';
+        }
+    }
+});
+
+// ===== INITIALIZE WEBSITE =====
+document.addEventListener('DOMContentLoaded', function() {
+    // تحميل القائمة
+    renderMenuItems();
+    
+    // بدء السلايدر
+    if (promoSlides.length > 0) {
+        showSlide(0);
+        startAutoSlide();
+    }
+    
+    // إضافة أزرار السلايدر (السابق/التالي) إذا لزم الأمر
+    addSliderControls();
+    
+    console.log('Spirito Pizza website loaded successfully! 🍕');
+});
+
+// ===== ADD SLIDER CONTROLS =====
+function addSliderControls() {
+    const promoSlider = document.querySelector('.promo-slider');
+    if (!promoSlider) return;
+    
+    // إنشاء أزرار التحكم
+    const controlsHTML = `
+        <button class="slider-prev" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: rgba(128, 0, 32, 0.7); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-next" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: rgba(128, 0, 32, 0.7); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    `;
+    
+    promoSlider.insertAdjacentHTML('beforeend', controlsHTML);
+    
+    // إضافة event listeners
+    const prevBtn = promoSlider.querySelector('.slider-prev');
+    const nextBtn = promoSlider.querySelector('.slider-next');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            prevSlide();
+            startAutoSlide();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            nextSlide();
+            startAutoSlide();
+        });
+    }
+}
+
+// ===== ADD PIZZA COUNTER =====
+function updatePizzaCounter() {
+    const counterElement = document.querySelector('.pizza-counter');
+    if (counterElement) {
+        counterElement.textContent = `${pizzaMenu.length} Delicious Pizzas`;
+    }
+}
+
+// تهيئة العداد عند التحميل
+updatePizzaCounter();
+    </script>
+</body>
+</html>
